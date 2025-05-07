@@ -32,6 +32,7 @@ public class EggDropModifiers {
     private static final Identifier DONKEY = Identifier.of("minecraft", "entities/donkey");
     private static final Identifier DROWNED = Identifier.of("minecraft", "entities/drowned");
     private static final Identifier ELDER_GUARDIAN = Identifier.of("minecraft", "entities/elder_guardian");
+    private static final Identifier ENDER_DRAGON = Identifier.of("minecraft", "entities/ender_dragon");
     private static final Identifier ENDERMAN = Identifier.of("minecraft", "entities/enderman");
     private static final Identifier ENDERMITE = Identifier.of("minecraft", "entities/endermite");
     private static final Identifier EVOKER = Identifier.of("minecraft", "entities/evoker");
@@ -84,6 +85,7 @@ public class EggDropModifiers {
     private static final Identifier WANDERING_TRADER = Identifier.of("minecraft", "entities/wandering_trader");
     private static final Identifier WARDEN = Identifier.of("minecraft", "entities/warden");
     private static final Identifier WITCH = Identifier.of("minecraft", "entities/witch");
+    private static final Identifier WITHER = Identifier.of("minecraft", "entities/wither");
     private static final Identifier WITHER_SKELETON = Identifier.of("minecraft", "entities/wither_skeleton");
     private static final Identifier WOLF = Identifier.of("minecraft", "entities/wolf");
     private static final Identifier ZOGLIN = Identifier.of("minecraft", "entities/zoglin");
@@ -235,6 +237,14 @@ public class EggDropModifiers {
                     .conditionally(RandomChanceLootCondition.builder(0.05f))
                     .with(ItemEntry.builder(Items.ELDER_GUARDIAN_SPAWN_EGG)).apply(SetCountLootFunction
                             .builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(ENDER_DRAGON.equals(key.getValue())) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.05f))
+                        .with(ItemEntry.builder(Items.ENDER_DRAGON_SPAWN_EGG)).apply(SetCountLootFunction
+                                .builder(UniformLootNumberProvider.create(1.0f,1.0f)).build());
                 tableBuilder.pool(poolBuilder.build());
             }
             if(ENDERMAN.equals(key.getValue())) { LootPool.Builder poolBuilder = LootPool.builder()
@@ -597,6 +607,13 @@ public class EggDropModifiers {
                     .rolls(ConstantLootNumberProvider.create(1))
                     .conditionally(RandomChanceLootCondition.builder(0.05f))
                     .with(ItemEntry.builder(Items.WITCH_SPAWN_EGG)).apply(SetCountLootFunction
+                            .builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
+                tableBuilder.pool(poolBuilder.build());
+            }
+            if(WITHER.equals(key.getValue())) { LootPool.Builder poolBuilder = LootPool.builder()
+                    .rolls(ConstantLootNumberProvider.create(1))
+                    .conditionally(RandomChanceLootCondition.builder(0.05f))
+                    .with(ItemEntry.builder(Items.WITHER_SPAWN_EGG)).apply(SetCountLootFunction
                             .builder(UniformLootNumberProvider.create(1.0f, 1.0f)).build());
                 tableBuilder.pool(poolBuilder.build());
             }
